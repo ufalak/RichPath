@@ -1,11 +1,12 @@
 *.iml
 *.apk
 .gradle
-/local.properties
+local.properties
 .idea/
 git
 .DS_Store
 /build
+*/build/*
 /captures
 .externalNativeBuild
 *.jks

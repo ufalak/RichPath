@@ -1,8 +1,9 @@
 package com.richpathanimator.sample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.richpath.RichPath;
 import com.richpath.RichPathView;
@@ -22,15 +23,19 @@ public class CompoundViewSamplesActivity extends AppCompatActivity {
 
         colorPickerRichPathView.setOnPathClickListener(new RichPath.OnPathClickListener() {
             @Override
-            public void onClick(RichPath richPath) {
+            public void onClick(RichPath clickedRichPath) {
                 bluePath.setStrokeAlpha(0f);
                 redPath.setStrokeAlpha(0f);
                 greenPath.setStrokeAlpha(0f);
                 purplePath.setStrokeAlpha(0f);
 
-                richPath.setStrokeAlpha(0.5f);
-
-                showToast(richPath.getName());
+                if (clickedRichPath == bluePath
+                        || clickedRichPath == redPath
+                        || clickedRichPath == greenPath
+                        || clickedRichPath == purplePath) {
+                    clickedRichPath.setStrokeAlpha(0.5f);
+                    showToast(clickedRichPath.getName());
+                }
             }
         });
     }
